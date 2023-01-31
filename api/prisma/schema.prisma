@@ -14,6 +14,15 @@ model User {
   fullName String
   email String @unique
   password String
+
+  transaction Transaction[]
+  ignore Ignore[]
+  tag Tag[]
+  category Category[]
+  creditCard CreditCard[]
+  account Account[]
+  objective Objective[]
+  institution Institution[]
 }
 
 model Transaction {
@@ -23,6 +32,9 @@ model Transaction {
   value Float
   paid Boolean
   transferedTo String
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Institution {
@@ -30,6 +42,9 @@ model Institution {
   name String @unique
   color String
   icon String
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
 
   creditCard CreditCard[]
   account Account[]
@@ -38,11 +53,17 @@ model Institution {
 model Ignore {
   id String @id @default(uuid())
   name String
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Tag {
   id String @id @default(uuid())
   name String
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Category {
@@ -51,6 +72,9 @@ model Category {
   color String
   icon String
   type String
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model CreditCard {
@@ -59,8 +83,10 @@ model CreditCard {
   dueDate DateTime @db.Date
   closingDate DateTime @db.Date
   institutionId String
+  userId String
 
   institution Institution @relation(fields: [institutionId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Account {
@@ -68,8 +94,10 @@ model Account {
   initialBalance Float @default(0)
   openingDate DateTime @db.Date
   institutionId String
+  userId String
 
   institution Institution @relation(fields: [institutionId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Objective {
@@ -80,4 +108,7 @@ model Objective {
   dueDate DateTime @db.Date
   description String
   status Boolean @default(false)
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
 }
