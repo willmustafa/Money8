@@ -36,3 +36,8 @@ model Ignore {
   id String @id @default(uuid())
   name String
 }
+
+model Tag {
+  id String @id @default(uuid())
+  name String
+}
