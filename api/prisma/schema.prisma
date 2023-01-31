@@ -24,3 +24,10 @@ model Transaction {
   paid Boolean
   transferedTo String
 }
+
+model Institution {
+  id String @id @default(uuid())
+  name String @unique
+  color String
+  icon String
+}
