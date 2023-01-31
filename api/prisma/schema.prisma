@@ -41,3 +41,11 @@ model Tag {
   id String @id @default(uuid())
   name String
 }
+
+model Category {
+  id String @id @default(uuid())
+  category String
+  color String
+  icon String
+  type String
+}
