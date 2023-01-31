@@ -71,3 +71,13 @@ model Account {
 
   institution Institution @relation(fields: [institutionId], references: [id])
 }
+
+model Objective {
+  id String @id @default(uuid())
+  name String
+  color String
+  value Float
+  dueDate DateTime @db.Date
+  description String
+  status Boolean @default(false)
+}
