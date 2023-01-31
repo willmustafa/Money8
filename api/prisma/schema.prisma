@@ -30,6 +30,8 @@ model Institution {
   name String @unique
   color String
   icon String
+
+  creditCard CreditCard[]
 }
 
 model Ignore {
@@ -48,4 +50,14 @@ model Category {
   color String
   icon String
   type String
+}
+
+model CreditCard {
+  id String @id @default(uuid())
+  limit Float
+  dueDate DateTime @db.Date
+  closingDate DateTime @db.Date
+  institutionId String
+
+  institution Institution @relation(fields: [institutionId], references: [id])
 }
