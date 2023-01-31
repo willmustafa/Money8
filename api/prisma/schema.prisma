@@ -31,3 +31,8 @@ model Institution {
   color String
   icon String
 }
+
+model Ignore {
+  id String @id @default(uuid())
+  name String
+}
