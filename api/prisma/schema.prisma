@@ -27,11 +27,11 @@ model User {
 
 model Transaction {
   id String @id @default(uuid())
-  description String
+  description String?
   date DateTime @db.Date
   value Float
   paid Boolean
-  transferedTo String
+  transferedTo String?
   userId String
 
   user User @relation(fields: [userId], references: [id])
