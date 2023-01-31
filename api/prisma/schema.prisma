@@ -15,3 +15,12 @@ model User {
   email String @unique
   password String
 }
+
+model Transaction {
+  id String @id @default(uuid())
+  description String
+  date DateTime @db.Date
+  value Float
+  paid Boolean
+  transferedTo String
+}
