@@ -6,9 +6,10 @@ import { InstitutionModule } from './institution/institution.module';
 import { TagModule } from './tag/tag.module';
 import { IgnoreModule } from './ignore/ignore.module';
 import { CategoryModule } from './category/category.module';
+import { CreditCardModule } from './credit-card/credit-card.module';
 
 @Module({
-  imports: [UserModule, TransactionModule, InstitutionModule, TagModule, IgnoreModule, CategoryModule],
+  imports: [UserModule, TransactionModule, InstitutionModule, TagModule, IgnoreModule, CategoryModule, CreditCardModule],
   controllers: [],
   providers: [PrismaService],
 })
