@@ -5,9 +5,10 @@ import { TransactionModule } from './transaction/transaction.module';
 import { InstitutionModule } from './institution/institution.module';
 import { TagModule } from './tag/tag.module';
 import { IgnoreModule } from './ignore/ignore.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
-  imports: [UserModule, TransactionModule, InstitutionModule, TagModule, IgnoreModule],
+  imports: [UserModule, TransactionModule, InstitutionModule, TagModule, IgnoreModule, CategoryModule],
   controllers: [],
   providers: [PrismaService],
 })
