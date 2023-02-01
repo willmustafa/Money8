@@ -7,5 +7,7 @@ export class CreateTransactionDto implements Prisma.TransactionCreateInput {
   value: number;
   paid: boolean;
   transferedTo: string;
-  user: Prisma.UserCreateNestedOneWithoutTransactionInput;
+  fromAccount: string;
+  fromCreditCard?: string;
+  userId: string;
 }
