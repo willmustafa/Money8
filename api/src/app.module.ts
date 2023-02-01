@@ -11,7 +11,17 @@ import { AccountModule } from './account/account.module';
 import { ObjectiveModule } from './objective/objective.module';
 
 @Module({
-  imports: [UserModule, TransactionModule, InstitutionModule, TagModule, IgnoreModule, CategoryModule, CreditCardModule, AccountModule, ObjectiveModule],
+  imports: [
+    UserModule,
+    TransactionModule,
+    InstitutionModule,
+    TagModule,
+    IgnoreModule,
+    CategoryModule,
+    CreditCardModule,
+    AccountModule,
+    ObjectiveModule,
+  ],
   controllers: [],
   providers: [PrismaService],
 })
