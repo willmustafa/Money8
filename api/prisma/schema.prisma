@@ -49,7 +49,7 @@ model Institution {
   icon String
   userId String
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 
   creditCard CreditCard[]
   account Account[]
@@ -60,7 +60,7 @@ model Ignore {
   name String
   userId String
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 }
 
 model Tag {
@@ -68,7 +68,7 @@ model Tag {
   name String
   userId String
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 }
 
 model Category {
@@ -79,7 +79,7 @@ model Category {
   type String
   userId String
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 }
 
 model CreditCard {
@@ -90,8 +90,8 @@ model CreditCard {
   institutionId String
   userId String
 
-  institution Institution @relation(fields: [institutionId], references: [id])
-  user User @relation(fields: [userId], references: [id])
+  institution Institution? @relation(fields: [institutionId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 
   transaction Transaction[]
 }
@@ -103,8 +103,8 @@ model Account {
   institutionId String
   userId String
 
-  institution Institution @relation(fields: [institutionId], references: [id])
-  user User @relation(fields: [userId], references: [id])
+  institution Institution? @relation(fields: [institutionId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 
   accountFrom Transaction[] @relation("accountFrom")
   accountTo Transaction[] @relation("accountTo")
@@ -120,5 +120,5 @@ model Objective {
   status Boolean @default(false)
   userId String
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 }
