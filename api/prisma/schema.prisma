@@ -31,10 +31,15 @@ model Transaction {
   date DateTime @db.Date
   value Float
   paid Boolean
+  fromAccount String?
+  fromCreditCard String?
   transferedTo String?
   userId String
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
+  accountFrom Account? @relation("accountFrom", fields: [fromAccount], references: [id])
+  accountTo Account? @relation("accountTo", fields: [transferedTo], references: [id])
+  creditCard CreditCard? @relation(fields: [fromCreditCard], references: [id])
 }
 
 model Institution {
@@ -87,6 +92,8 @@ model CreditCard {
 
   institution Institution @relation(fields: [institutionId], references: [id])
   user User @relation(fields: [userId], references: [id])
+
+  transaction Transaction[]
 }
 
 model Account {
@@ -98,6 +105,9 @@ model Account {
 
   institution Institution @relation(fields: [institutionId], references: [id])
   user User @relation(fields: [userId], references: [id])
+
+  accountFrom Transaction[] @relation("accountFrom")
+  accountTo Transaction[] @relation("accountTo")
 }
 
 model Objective {
