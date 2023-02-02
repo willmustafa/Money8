@@ -9,6 +9,7 @@ import { CategoryModule } from './category/category.module';
 import { CreditCardModule } from './credit-card/credit-card.module';
 import { AccountModule } from './account/account.module';
 import { ObjectiveModule } from './objective/objective.module';
+import { ImportModule } from './import/import.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ObjectiveModule } from './objective/objective.module';
     CreditCardModule,
     AccountModule,
     ObjectiveModule,
+    ImportModule,
   ],
   controllers: [],
   providers: [PrismaService],
