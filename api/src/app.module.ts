@@ -9,6 +9,9 @@ import { CategoryModule } from './category/category.module';
 import { CreditCardModule } from './credit-card/credit-card.module';
 import { AccountModule } from './account/account.module';
 import { ObjectiveModule } from './objective/objective.module';
+import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 
 @Module({
   imports: [
@@ -21,8 +24,15 @@ import { ObjectiveModule } from './objective/objective.module';
     CreditCardModule,
     AccountModule,
     ObjectiveModule,
+    AuthModule,
   ],
   controllers: [],
-  providers: [PrismaService],
+  providers: [
+    PrismaService,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
 })
 export class AppModule {}
