@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { categoryDump } from './dump/category.dump';
 
 @Injectable()
 export class CategoryService {
@@ -38,5 +39,16 @@ export class CategoryService {
     return this.prisma.category.delete({
       where: { id },
     });
+  }
+
+  async createFromDump(userId: string) {
+    for await (const category of categoryDump) {
+      await this.prisma.category.create({
+        data: {
+          ...category,
+          userId,
+        },
+      });
+    }
   }
 }

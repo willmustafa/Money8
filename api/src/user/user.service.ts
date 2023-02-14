@@ -4,19 +4,31 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { genSalt, hash } from 'bcrypt';
 import { User } from '@prisma/client';
+import { InstitutionService } from 'src/institution/institution.service';
+import { AccountService } from 'src/account/account.service';
+import { CategoryService } from 'src/category/category.service';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly institutionService: InstitutionService,
+    private readonly accountService: AccountService,
+    private readonly categoryService: CategoryService,
+  ) {}
 
   private readonly SALT_GEN_ROUNDS: number = 10;
 
   async create(createUserDto: CreateUserDto) {
     const data = (await this.generateHash(createUserDto)) as CreateUserDto;
 
-    return this.prisma.user.create({
+    const userCreated = await this.prisma.user.create({
       data,
     });
+
+    await this.populate(userCreated.id);
+
+    return userCreated;
   }
 
   findAll() {
@@ -71,5 +83,11 @@ export class UserService {
         email,
       },
     });
+  }
+
+  async populate(userId: string) {
+    await this.institutionService.createFromDump(userId);
+    await this.accountService.createFromDump(userId);
+    await this.categoryService.createFromDump(userId);
   }
 }

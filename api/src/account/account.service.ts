@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { institutionDump } from 'src/institution/dump/institution.dump';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
+import { accountDump } from './dump/account.dump';
 
 @Injectable()
 export class AccountService {
@@ -40,5 +42,25 @@ export class AccountService {
     return this.prisma.account.delete({
       where: { id },
     });
+  }
+
+  async createFromDump(userId: string) {
+    const institutionDinheiro = await this.prisma.institution.findFirst({
+      where: {
+        name: institutionDump.find((el) => el.name === 'Dinheiro')?.name,
+      },
+    });
+
+    if (institutionDinheiro) {
+      for await (const account of accountDump) {
+        await this.prisma.account.create({
+          data: {
+            ...account,
+            institutionId: institutionDinheiro.id,
+            userId,
+          },
+        });
+      }
+    }
   }
 }

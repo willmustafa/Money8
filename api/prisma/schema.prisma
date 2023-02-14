@@ -73,7 +73,7 @@ model Tag {
 
 model Category {
   id String @id @default(uuid())
-  category String
+  name String
   color String
   icon String
   type String
