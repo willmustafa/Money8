@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateInstitutionDto } from './dto/create-institution.dto';
 import { UpdateInstitutionDto } from './dto/update-institution.dto';
+import { institutionDump } from './dump/institution.dump';
 
 @Injectable()
 export class InstitutionService {
@@ -38,5 +39,16 @@ export class InstitutionService {
     return this.prisma.institution.delete({
       where: { id },
     });
+  }
+
+  async createFromDump(userId: string) {
+    for await (const institution of institutionDump) {
+      await this.prisma.institution.create({
+        data: {
+          ...institution,
+          userId,
+        },
+      });
+    }
   }
 }

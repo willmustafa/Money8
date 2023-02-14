@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UserModule } from '../user/user.module';
@@ -22,6 +27,8 @@ import { LoginValidationMiddleware } from './middlewares/login-validation.middle
 })
 export class AuthModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoginValidationMiddleware).forRoutes('auth/login');
+    consumer
+      .apply(LoginValidationMiddleware)
+      .forRoutes('auth/login', { path: 'user/', method: RequestMethod.POST });
   }
 }
