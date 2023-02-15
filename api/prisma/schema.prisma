@@ -44,7 +44,7 @@ model Transaction {
 
 model Institution {
   id String @id @default(uuid())
-  name String @unique
+  name String
   color String
   icon String
   userId String
@@ -53,6 +53,8 @@ model Institution {
 
   creditCard CreditCard[]
   account Account[]
+
+  @@unique([name, userId])
 }
 
 model Ignore {
