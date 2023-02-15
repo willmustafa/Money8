@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma/prisma.service';
-import { UserModule } from './user/user.module';
-import { TransactionModule } from './transaction/transaction.module';
-import { InstitutionModule } from './institution/institution.module';
-import { TagModule } from './tag/tag.module';
-import { IgnoreModule } from './ignore/ignore.module';
-import { CategoryModule } from './category/category.module';
-import { CreditCardModule } from './credit-card/credit-card.module';
-import { AccountModule } from './account/account.module';
-import { ObjectiveModule } from './objective/objective.module';
-import { AuthModule } from './auth/auth.module';
+import { PrismaService } from './shared/prisma/prisma.service';
+import { UserModule } from './modules/user/user.module';
+import { TransactionModule } from './modules/transaction/transaction.module';
+import { InstitutionModule } from './modules/institution/institution.module';
+import { TagModule } from './modules/tag/tag.module';
+import { IgnoreModule } from './modules/ignore/ignore.module';
+import { CategoryModule } from './modules/category/category.module';
+import { CreditCardModule } from './modules/credit-card/credit-card.module';
+import { AccountModule } from './modules/account/account.module';
+import { ObjectiveModule } from './modules/objective/objective.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
-import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 
 @Module({
   imports: [
