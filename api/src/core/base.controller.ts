@@ -1,4 +1,14 @@
-import { Body, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+  Request,
+} from '@nestjs/common';
+import { parse } from 'qs';
 
 export abstract class BaseController {
   constructor(private readonly service: any) {
@@ -6,27 +16,43 @@ export abstract class BaseController {
   }
 
   @Post()
-  create(@Body() createDto: any) {
+  create(@Body() createDto: any, @Request() request: any) {
+    createDto.userId = request.user.id;
     return this.service.create(createDto);
   }
 
   @Get()
-  findAll() {
-    return this.service.findAll();
+  findAll(
+    @Query('page') page = 1,
+    @Query('pageSize') pageSize = 25,
+    @Query('sort') sort = {},
+    @Query('filter') filter = '',
+    @Request() request: any,
+  ) {
+    const parsedFilter = filter === '' ? {} : parse(filter);
+    parsedFilter.userId = request.user.id;
+    return this.service.findAll(page, pageSize, sort, parsedFilter);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.service.findOne(id);
+  findOne(@Param('id') id: string, @Request() request: any) {
+    const filter = { userId: request.user.id };
+    return this.service.findOne(id, filter);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDto: any) {
-    return this.service.update(id, updateDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateDto: any,
+    @Request() request: any,
+  ) {
+    const filter = { userId: request.user.id };
+    return this.service.update(id, updateDto, filter);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.service.remove(id);
+  remove(@Param('id') id: string, @Request() request: any) {
+    const filter = { userId: request.user.id };
+    return this.service.remove(id, filter);
   }
 }
