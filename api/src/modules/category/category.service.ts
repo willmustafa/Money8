@@ -28,6 +28,7 @@ export class CategoryService extends BaseService {
         date: {
           lte: getLastDayOfMonth(date),
         },
+        paid: true,
       },
       by: ['categoryId'],
       _sum: {
