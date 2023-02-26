@@ -3,6 +3,8 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 export abstract class BaseService {
   constructor(private readonly prismaModel: any) {}
 
+  public userId: string | undefined = undefined;
+
   create(createDto: any): any {
     return this.prismaModel.create({
       data: {
