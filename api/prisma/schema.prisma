@@ -82,6 +82,7 @@ model Category {
   icon String
   type String
   userId String
+  limit Float?
 
   user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
   transactions Transaction[]
