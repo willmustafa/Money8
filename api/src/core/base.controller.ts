@@ -9,6 +9,7 @@ import {
   Request,
 } from '@nestjs/common';
 import { parse } from 'qs';
+import { getLastDayOfMonth } from 'src/shared/helpers/Dates';
 
 export abstract class BaseController {
   constructor(private readonly service: any) {
@@ -31,6 +32,10 @@ export abstract class BaseController {
   ) {
     const parsedFilter = filter === '' ? {} : parse(filter);
     parsedFilter.userId = request.user.id;
+
+    if (parsedFilter?.date)
+      parsedFilter.date = this.getParsedDateOnFilter(parsedFilter);
+
     return this.service.findAll(page, pageSize, sort, parsedFilter);
   }
 
@@ -54,5 +59,11 @@ export abstract class BaseController {
   remove(@Param('id') id: string, @Request() request: any) {
     const filter = { userId: request.user.id };
     return this.service.remove(id, filter);
+  }
+
+  getParsedDateOnFilter(filter: any): string {
+    return getLastDayOfMonth(
+      (filter.date as string) ?? new Date().toISOString(),
+    );
   }
 }
