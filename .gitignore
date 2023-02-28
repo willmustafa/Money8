@@ -40,6 +40,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.pnp
+.pnp.js
 
 # TypeScript v1 declaration files
 typings/
@@ -102,3 +104,34 @@ dist
 
 # TernJS port file
 .tern-port
+
+# cypress
+front/cypress/screenshots
+front/cypress/videos
+
+# next.js
+front/.next
+front/out
+
+# next-sitemap
+front/public/robots.txt
+front/public/sitemap.xml
+front/public/sitemap-*.xml
+
+# dotenv local files
+front/.env*.local
+
+# local folder
+front/local
+
+# vercel
+front/.vercel
+
+# production
+front/build
+
+# cache
+front/.swc/
+
+# testing
+front/coverage
