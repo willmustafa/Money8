@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="description" content="Controle financeiro pessoal." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className={styles.main}>
+      <main>
         <h1>Money 8</h1>
       </main>
     </>
