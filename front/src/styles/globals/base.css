@@ -1,0 +1,58 @@
+@import url('./bootstrap-grid.css');
+@import url('./bootstrap-reboot.css');
+@import url('./bootstrap-utilities.css');
+
+:root{
+  --dark: #0E0E23;
+  --white: #FFFFFF;
+  --light: #F8F9FE;
+  --dark-blue: #32325D;
+  --blue: #1667B8;
+  --light-blue: #1EAAE7;
+  --steel-blue: #4582BE;
+  --green: #2DCE89;
+  --red: #F5365C;
+  --light-red: #F85D7C;
+  --indigo: #6259CA;
+  --violet: #5750AF;
+  --gray: #7E7E7E;
+  --light-gray: #B1B1B1;
+  --lighter-gray: #F4F5F9;
+  --orange: #FF7A5B;
+
+  --bs-link-color-rgb: 13, 110, 253;
+  --bs-link-hover-color-rgb: 10, 88, 202;
+}
+
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--dark);
+  text-align: left;
+  background-color: var(--light);
+}
+
+hr {
+  border-top: 1px solid;
+}
+
+h6, h5, h4, h3, h2, h1 {
+  color: var(--dark, inherit);
+}
+
+mark {
+  background-color: var(--light-gray);
+}
+
+a {
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+}
+a:hover {
+  --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+}
+
+code {
+  color: var(--light-red);
+}
