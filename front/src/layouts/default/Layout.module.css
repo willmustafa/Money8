@@ -1,0 +1,15 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  margin-left: var(--sidebar-width);
+}
+
+.sidebar_open {
+  margin-left: calc(var(--sidebar-width) * 3.15)
+}

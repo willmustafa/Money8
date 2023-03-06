@@ -6,6 +6,7 @@
   --dark: #0E0E23;
   --white: #FFFFFF;
   --light: #F8F9FE;
+  --light-rgb: 255, 255, 255;
   --dark-blue: #32325D;
   --blue: #1667B8;
   --light-blue: #1EAAE7;
@@ -22,6 +23,9 @@
 
   --bs-link-color-rgb: 13, 110, 253;
   --bs-link-hover-color-rgb: 10, 88, 202;
+
+  --transition-time: 0.25s;
+  --sidebar-width: 70px;
 }
 
 body{
