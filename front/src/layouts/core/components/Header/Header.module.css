@@ -1,0 +1,38 @@
+.header {
+  height: var(--sidebar-logo-height);
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header svg {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.user_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.img_wrapper {
+    border-radius: 50%;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  text-align: right;
+  padding-right: 14px;
+}
+
+.user_info b {
+    font-size: 14px;
+}
+
+.user_info span {
+    font-size: 12px;
+}

@@ -6,9 +6,10 @@ import logo from "../../../../../public/logo.png";
 import logoCollapsed from "../../../../../public/logo-collapsed.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { SidebarProps } from "./Sidebar.dto";
+import { useSelector } from "react-redux";
+import { selectSidebarState } from "@/store/sidebar.slice";
 
-function Sidebar({isOpen}: SidebarProps) {
+function Sidebar() {
   const routes: LiProps[] = [
     {
       name: "Dashboard",
@@ -46,6 +47,7 @@ function Sidebar({isOpen}: SidebarProps) {
       link: 'tags'
     },
   ];
+  const isOpen = useSelector(selectSidebarState)
 
   const sidebarClass = isOpen ? styles.expanded : "";
 
