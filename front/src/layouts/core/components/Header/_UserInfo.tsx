@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import profile from '@/assets/profile.png'
+import profile from '@/assets/images/profile.png'
 import styles from './Header.module.css'
 
 export default function UserInfo() {

@@ -1,0 +1,12 @@
+.tag_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 9px 0px;
+    gap: 16px;
+}
+
+.tag_color {
+    width: 14px;
+    border-radius: var(--border-radius);
+}

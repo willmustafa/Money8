@@ -1,0 +1,55 @@
+.color-green {
+  color: var(--green);
+}
+
+.color-faded {
+  color: var(--gray);
+}
+
+.color-danger {
+  color: var(--red);
+}
+
+.color-light {
+  color: var(--light);
+}
+
+.color-orange {
+  color: var(--orange);
+}
+
+.color-indigo {
+  color: var(--indigo);
+}
+
+.color-blue {
+  color: var(--blue);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.bg-faded {
+  background-color: var(--gray);
+}
+
+.bg-danger {
+  background-color: var(--red);
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.bg-indigo {
+  background-color: var(--indigo);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}

@@ -1228,6 +1228,10 @@
   justify-content: space-evenly !important;
 }
 
+.justify-content-stretch {
+  justify-content: stretch !important;
+}
+
 .align-items-start {
   align-items: flex-start !important;
 }
