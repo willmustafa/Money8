@@ -1,3 +1,4 @@
+import AccountCard from "@/layouts/core/components/AccountCard/AccountCard";
 import CustomCard from "@/layouts/core/components/UI/customCard/customCard";
 import Image from "next/image";
 import React from "react";
@@ -13,7 +14,7 @@ export default function Contas() {
         <CustomCard title="Criar nova conta" handleCreate={accountCreateHandler} />
       </div>
       <div className="col-3">
-        <CustomCard
+        <AccountCard
             bg="generic"
           title="NuBank"
           icon={
