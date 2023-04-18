@@ -76,9 +76,10 @@ interface LiProps {
 
 function Li({ icon, name, link }: LiProps) {
   const router = useRouter();
+  const parsedLink = link === "/" ? "" : link 
   
   return (
-    <Link href={link} className={router.pathname == `/${link}` ? styles.menuActive : ""}>
+    <Link href={link} className={router.pathname == `/${parsedLink}` ? styles.menuActive : ""}>
       <i>
         <FontAwesomeIcon icon={["fas", icon]} />
       </i>
