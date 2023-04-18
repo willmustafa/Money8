@@ -10,3 +10,7 @@
   box-shadow: 0px 4px 4px rgba(235, 233, 237, 0.25);
   border-radius: var(--border-radius);
 }
+
+.card.fullWidth {
+  padding: 0 !important;
+}

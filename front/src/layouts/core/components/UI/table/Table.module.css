@@ -1,0 +1,22 @@
+.table {
+    display: table;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.thead {
+    background-color: var(--lighter-gray);
+}
+
+.tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.th, .td, .tableFooter {
+    padding: 25px;
+}
+
+.th:first-child, .td:first-child{
+    width: 15px;
+    padding-right: 0 !important;
+}

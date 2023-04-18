@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { useSelector } from "react-redux";
 import { selectSidebarState } from "@/store/sidebar.slice";
+import { useRouter } from "next/router";
 
 function Sidebar() {
   const routes: LiProps[] = [
@@ -74,8 +75,10 @@ interface LiProps {
 }
 
 function Li({ icon, name, link }: LiProps) {
+  const router = useRouter();
+  
   return (
-    <Link href={link}>
+    <Link href={link} className={router.pathname == `/${link}` ? styles.menuActive : ""}>
       <i>
         <FontAwesomeIcon icon={["fas", icon]} />
       </i>

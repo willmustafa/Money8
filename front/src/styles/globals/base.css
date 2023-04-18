@@ -20,7 +20,7 @@
   --violet: #5750AF;
   --gray: #7E7E7E;
   --light-gray: #B1B1B1;
-  --lighter-gray: #F4F5F9;
+  --lighter-gray: #EFEFEF;
   --orange: #FF7A5B;
 
   --bs-link-color-rgb: 13, 110, 253;
@@ -31,6 +31,9 @@
   --sidebar-logo-height: 70px;
 
   --border-radius: 9px;
+
+  --transition-duration: 0.15s;
+  --transition-type: ease-in-out;
 }
 
 body{

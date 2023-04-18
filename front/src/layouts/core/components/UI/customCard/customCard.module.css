@@ -1,0 +1,113 @@
+.customCardWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0px;
+  min-height: 161px;
+  background: var(--indigo);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+  color: var(--white);
+}
+
+.customCardWrapper.bg:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.customCardWrapper.bg-plus:before {
+  background: url("/backgrounds/plus.png");
+  background-size: cover;
+}
+
+.customCardWrapper.bg-generic:before {
+  background: url("/backgrounds/generic-account.png");
+  background-size: cover;
+}
+
+.customCardInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  align-self: stretch;
+  flex-grow: 1;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.customCardInner.expansive {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardHeader .iconWrapper {
+  opacity: 0.7;
+}
+
+.cursorPointer {
+  cursor: pointer !important;
+}
+
+.click {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all var(--transition-duration) var(--transition-type);
+  z-index: 3;
+}
+
+.click:hover {
+  opacity: 1;
+}
+
+.arrowDownFixed {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  opacity: 0.5;
+  transition: all var(--transition-duration) var(--transition-type);
+}
+
+.customCardInner.expansive:hover .arrowDownFixed,
+.customCardWrapper:hover {
+  opacity: 1;
+}
+
+.collapsibleContent {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.collapsibleContentActive {
+  max-height: 1000px;
+}
+
+.cardBody {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}

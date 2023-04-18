@@ -1,0 +1,52 @@
+.iconRound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  isolation: isolate;
+  border-radius: 50%;
+
+  width: 30px;
+  height: 30px;
+}
+
+.iconRound-primary {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.iconRound-secondary {
+  color: var(--white);
+  background-color: var(--indigo);
+}
+
+.iconRound-success {
+  color: var(--white);
+  background-color: var(--green);
+}
+
+.iconRound-danger {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.iconRound-warning {
+  color: var(--dark);
+  background-color: var(--orange);
+}
+
+.iconRound-info {
+  color: var(--white);
+  background-color: var(--steel-blue);
+}
+
+.iconRound-light {
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+.iconRound-dark {
+  color: var(--white);
+  background-color: var(--dark);
+}

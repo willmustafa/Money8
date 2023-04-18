@@ -42,7 +42,8 @@
 }
 
 .menu a.active,
-.menu a:hover {
+.menu a:hover,
+.menuActive {
   background-color: var(--violet);
 }
 
