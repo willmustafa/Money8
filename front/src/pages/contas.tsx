@@ -4,18 +4,27 @@ import Image from "next/image";
 import React from "react";
 
 export default function Contas() {
-  const accountEditHandler = () => {alert('edit')}
-  const accountImportHandler = () => {alert('import')}
-  const accountCreateHandler = () => {alert('create')}
+  const accountEditHandler = () => {
+    alert("edit");
+  };
+  const accountImportHandler = () => {
+    alert("import");
+  };
+  const accountCreateHandler = () => {
+    alert("create");
+  };
 
   return (
     <div className="row">
       <div className="col-3">
-        <CustomCard title="Criar nova conta" handleCreate={accountCreateHandler} />
+        <CustomCard
+          title="Criar nova conta"
+          handleCreate={accountCreateHandler}
+        />
       </div>
       <div className="col-3">
         <AccountCard
-            bg="generic"
+          bg="generic"
           title="NuBank"
           icon={
             <Image
