@@ -20,42 +20,44 @@ export default function CreditCardCard(props: ICustomCard) {
   return (
     <CustomCard {...props}>
       <div className={`${styles.customCardInner} ${styles.expansive}`}>
-        <div className={styles.cardHeader}>
-          <span>Fatura atual</span>
-          <div className={`d-flex gap-3 ${styles.iconWrapper}`}>
-            <span
-              className={styles.click}
-              onClick={props.handleEdit ?? function () {}}
-            >
-              <FontAwesomeIcon icon={["fas", "edit"]} />
-            </span>
-            <span
-              className={styles.click}
-              onClick={props.handleImport ?? function () {}}
-            >
-              <FontAwesomeIcon icon={["fas", "cloud-arrow-up"]} />
-            </span>
+        <div className={`d-flex flex-column w-100 ${styles.innerProgression}`} style={{"--innerProgression": "50%"} as any}>
+          <div className={styles.cardHeader}>
+            <span>Fatura atual</span>
+            <div className={`d-flex gap-3 ${styles.iconWrapper}`}>
+              <span
+                className={styles.click}
+                onClick={props.handleEdit ?? function () {}}
+              >
+                <FontAwesomeIcon icon={["fas", "edit"]} />
+              </span>
+              <span
+                className={styles.click}
+                onClick={props.handleImport ?? function () {}}
+              >
+                <FontAwesomeIcon icon={["fas", "cloud-arrow-up"]} />
+              </span>
+            </div>
           </div>
-        </div>
-        <div className={styles.cardBody}>
-          <div className="d-block">
-            <h4 className="text-white fw-bold">
-              {toCurrency(props.currentValue)}
-            </h4>
-            {props.limit && (
-              <p className={`mb-0 ${styles.subtext}`}>
-                Limite: {toCurrency(props.limit)}
-              </p>
-            )}
-          </div>
-          <div className={`mt-auto ${styles.cardFooter}`}>
-            <div className={styles.logoWrapper}>{props.icon}</div>
-            {props.paymentDate && (
-              <div className={styles.paymentDate}>
-                <p className="mb-0">Data de pagamento:</p>
-                <p className="mb-0">{props.paymentDate}</p>
-              </div>
-            )}
+          <div className={styles.cardBody}>
+            <div className="d-block">
+              <h4 className="text-white fw-bold">
+                {toCurrency(props.currentValue)}
+              </h4>
+              {props.limit && (
+                <p className={`mb-0 ${styles.subtext}`}>
+                  Limite: {toCurrency(props.limit)}
+                </p>
+              )}
+            </div>
+            <div className={`mt-auto ${styles.cardFooter}`}>
+              <div className={styles.logoWrapper}>{props.icon}</div>
+              {props.paymentDate && (
+                <div className={styles.paymentDate}>
+                  <p className="mb-0">Data de pagamento:</p>
+                  <p className="mb-0">{props.paymentDate}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

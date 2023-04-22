@@ -41,6 +41,25 @@ export default function Contas() {
           handleImport={accountImportHandler}
         />
       </div>
+      <div className="col-4">
+        <CreditCardCard
+          bg="generic"
+          title="NuBank"
+          icon={
+            <Image
+              src="/institutions/nubank.svg"
+              alt="bank logo"
+              width={55}
+              height={30}
+            />
+          }
+          currentValue={600}
+          limit={1200}
+          paymentDate="08/20"
+          handleEdit={accountEditHandler}
+          handleImport={accountImportHandler}
+        />
+      </div>
     </div>
   );
 }
