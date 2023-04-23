@@ -14,3 +14,21 @@
   border-radius: var(--border-radius);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.underline {
+  border-bottom: 1px solid var(--dark);
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.underline:focus, .underline:focus-visible {
+  outline: none;
+}
+
+.lg {
+  font-size: 1.75rem;
+}

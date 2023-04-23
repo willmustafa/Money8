@@ -10,9 +10,9 @@ export interface IInputGroup {
 export default function InputGroup(props: IInputGroup) {
   return (
     <div className={styles.inputGroup}>
-      {props.leftIcon ? (<span className={styles.inputGroupIcon}>{props.leftIcon}</span>) : ''}
+      {props.leftIcon && <span className={styles.inputGroupIcon}>{props.leftIcon}</span>}
       {props.children}
-      {props.rightIcon ? (<span className={styles.inputGroupIcon}>{props.rightIcon}</span>) : ''}
+      {props.rightIcon && <span className={styles.inputGroupIcon}>{props.rightIcon}</span>}
     </div>
   );
 }
