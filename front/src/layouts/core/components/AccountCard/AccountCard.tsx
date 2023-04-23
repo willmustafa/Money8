@@ -18,14 +18,8 @@ interface ICustomCard {
 
 export default function AccountCard(props: ICustomCard) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [contentHeight, setContentHeight] = useState("0px");
+  const [contentHeight, setContentHeight] = useState("0");
   const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setContentHeight(`${contentRef.current.scrollHeight}px`);
-    }
-  }, []);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -54,7 +48,7 @@ export default function AccountCard(props: ICustomCard) {
             </span>
             </div>
         </div>
-        <div className={styles.cardBody} onClick={toggleExpand}>
+        <div className={styles.cardBody} onClick={() => toggleExpand()}>
             <div>{props.icon}</div>
             <div className="d-block">
             <h5 className="text-white fw-bold">{props.text}</h5>
@@ -81,8 +75,9 @@ export default function AccountCard(props: ICustomCard) {
             </div>
             </div>
         </div>
-        <span className={`${styles.arrowDownFixed}`}>
-            <FontAwesomeIcon icon={["fas", "angles-down"]} />
+        <span className={`${styles.arrowDownFixed}`} onClick={() => toggleExpand()}>
+            {!isExpanded && <FontAwesomeIcon icon={["fas", "angles-down"]} />}
+            {isExpanded && <FontAwesomeIcon icon={["fas", "angles-up"]} />}
         </span>
         </div>
     </CustomCard>

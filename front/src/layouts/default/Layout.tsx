@@ -7,6 +7,7 @@ import styles from "./Layout.module.css";
 import Offcanvas from "../core/components/Offcanvas/Offcanvas";
 import { AnimatePresence } from "framer-motion";
 import TransactionButton from "../core/components/TransactionButton/TransactionButton";
+import TransactionOffcanvas from "../core/components/TransactionOffcanvas/TransactionOffcanvas";
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   const isSidebarOpen = useSelector(selectSidebarState);
@@ -18,7 +19,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       <AnimatePresence>
         {showOffcanvas && (
           <Offcanvas handler={() => setShowOffcanvas(!showOffcanvas)}>
-            oi
+            <TransactionOffcanvas />
           </Offcanvas>
         )}
       </AnimatePresence>
