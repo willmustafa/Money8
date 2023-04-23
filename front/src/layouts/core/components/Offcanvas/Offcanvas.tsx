@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./Offcanvas.module.css";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IOffcanvas {
   children: React.ReactNode;
@@ -27,7 +28,7 @@ export default function Offcanvas(props: IOffcanvas) {
     useEffect(() => {
       function handleClickOutside(event: Event) {
         if (ref.current && !ref.current.contains(event.target)) {
-          props.handler()
+          props.handler();
         }
       }
       // Bind the event listener
@@ -37,10 +38,28 @@ export default function Offcanvas(props: IOffcanvas) {
         document.removeEventListener("mousedown", handleClickOutside);
       };
     }, [ref]);
-  }
+  };
 
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
+
+  const slideAnimation = {
+    hidden: {
+      x: '100vw'
+    },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 0.5
+      }
+    },
+    exit: {
+      x: '100vw',
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -51,7 +70,19 @@ export default function Offcanvas(props: IOffcanvas) {
       className={styles.offcanvas}
     >
       <div ref={wrapperRef} className={styles.offcanvasInner}>
-        {props.children}
+        <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={slideAnimation}
+        >
+          <div className={styles.offcanvasInnerWrapper}>
+            <div className={styles.fixedReturn} onClick={() => props.handler()}>
+              <FontAwesomeIcon icon={["fas", "arrow-left"]} />
+            </div>
+            {props.children}
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );

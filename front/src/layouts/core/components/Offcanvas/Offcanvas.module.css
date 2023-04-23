@@ -23,13 +23,9 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
   max-width: 100%;
   color: var(--dark);
   visibility: auto;
-  background-color: var(--light);
-  background-clip: padding-box;
   outline: 0;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
@@ -47,4 +43,32 @@
   height: 100vh;
   background-color: var(--dark);
   opacity: 0.4;
+}
+
+.fixedReturn {
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  background-color: var(--light);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.fixedReturn:hover {
+  background-color: var(--light-red);
+  color: var(--light);
+}
+
+.offcanvasInnerWrapper {
+  background-color: var(--light);
+  background-clip: padding-box;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  height: 100vh;
 }
