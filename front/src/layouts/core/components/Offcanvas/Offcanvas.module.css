@@ -14,7 +14,6 @@
   bottom: 0;
   top: 0;
   right: 0;
-  width: 30%;
   z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,7 +22,6 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  max-width: 100%;
   color: var(--dark);
   visibility: auto;
   outline: 0;

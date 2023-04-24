@@ -69,7 +69,7 @@ export default function Offcanvas(props: IOffcanvas) {
       variants={variants}
       className={styles.offcanvas}
     >
-      <div ref={wrapperRef} className={styles.offcanvasInner}>
+      <div ref={wrapperRef} className={`col-12 col-lg-6 col-xl-4 ${styles.offcanvasInner}`}>
         <motion.div
               initial="hidden"
               animate="visible"
