@@ -82,7 +82,7 @@ export default function TransactionOffcanvas(props: ITransactionOffcanvas) {
                 </div>
                 <div className="mb-3">
                   <FormLabel htmlFor="tags">Tags</FormLabel>
-                  <FormSelect options={[{ value: "teste", label: "teste" }]} />
+                  <FormSelect options={[{ value: "teste", label: "teste" }]} isMulti/>
                 </div>
               </div>
               <div className={styles.footer}>
