@@ -9,7 +9,8 @@ export default function FormSelect(props: any) {
         control: (baseStyles, state) => ({
           ...baseStyles,
           borderColor: 'var(--dark)',
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          borderRadius: 'var(--border-radius)'
         }),
       }}
       placeholder="Selecione..."
