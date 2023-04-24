@@ -11,6 +11,18 @@
   border-top-left-radius: 25px;
 }
 
+.header.income {
+  background-color: var(--green);
+}
+
+.header.expense {
+  background-color: var(--light-red);
+}
+
+.header.transfer {
+  background-color: var(--light-blue);
+}
+
 .body {
   padding: 30px 60px 60px 60px;
 }
