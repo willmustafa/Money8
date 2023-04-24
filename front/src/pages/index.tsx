@@ -10,8 +10,8 @@ export default function Home() {
     <>
       <InfoCardsHeader />
       <div className="row mt-4">
-        <div className="col-6"></div>
-        <div className="col-6 gap-3 d-flex flex-column">
+        <div className="col-12 col-lg-6"></div>
+        <div className="col-12 col-lg-6 gap-3 d-flex flex-column">
           <DoodleAlert
             subtitle="Esse mês você economizou R$ 450,00 a mais que o mês passado!"
             title="Muito bem Thaila!"
