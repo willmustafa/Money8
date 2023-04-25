@@ -26,7 +26,8 @@
 }
 
 .modalBody {
-  padding-bottom: 13px;
+  padding-bottom: 26px;
+  position: relative;
 }
 
 .xl {
