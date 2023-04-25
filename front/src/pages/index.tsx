@@ -4,13 +4,16 @@ import Card from "@/layouts/core/components/UI/card/Card";
 import TagColor from "@/layouts/core/components/UI/tagColor/TagColor";
 import CategoryChart from "@/layouts/core/components/CategoryChart/CategoryChart";
 import InfoCardsHeader from "@/layouts/modules/InfoCardsHeader";
+import CreditCardsSlider from "@/layouts/core/components/CreditCardsSlider/CreditCardsSlider";
 
 export default function Home() {
   return (
     <>
       <InfoCardsHeader />
       <div className="row mt-4">
-        <div className="col-12 col-lg-6"></div>
+        <div className="col-12 col-lg-6">
+          <CreditCardsSlider />
+        </div>
         <div className="col-12 col-lg-6 gap-3 d-flex flex-column">
           <DoodleAlert
             subtitle="Esse mês você economizou R$ 450,00 a mais que o mês passado!"

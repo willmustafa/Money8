@@ -1,0 +1,59 @@
+.sliderWrapper {
+  position: relative;
+}
+
+.sliderFirst {
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+}
+
+.sliderSecond {
+  width: 85%;
+  position: absolute;
+  height: 100%;
+  background-color: #fff;
+  margin-top: 2rem;
+  z-index: 9;
+  left: 7.5%;
+  top: 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sliderThird {
+  width: 70%;
+  position: absolute;
+  height: 100%;
+  background-color: #fff;
+  margin-top: 4rem;
+  z-index: 8;
+  left: 15%;
+  top: 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.iconDown {
+  position: absolute;
+  bottom: -5rem;
+  left: 44%;
+  z-index: 11;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.iconDown:hover{
+    transform: scale(1.2);
+    background-color: var(--indigo);
+    color: var(--light)
+}
