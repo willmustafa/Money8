@@ -18,7 +18,7 @@
 }
 
 .img_wrapper {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .user_info {
@@ -30,9 +30,38 @@
 }
 
 .user_info b {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .user_info span {
-    font-size: 12px;
+  font-size: 12px;
+}
+
+.menuLink {
+  width: auto;
+  overflow: hidden;
+  font-size: 1rem;
+  box-sizing: border-box;
+  min-height: 48px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-top: 6px;
+  white-space: nowrap;
+  padding-bottom: 6px;
+  color: var(--dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  gap: 10px;
+}
+
+.menuIcon {
+  font-size: 0.9rem !important;
+  transition: all 0.25s ease;
+}
+
+.menuLink:hover {
+  background-color: var(--indigo);
+  color: var(--light)
 }

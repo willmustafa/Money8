@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React, { HTMLProps, useEffect } from "react";
 import styles from "./Table.module.css";
 
 import {
@@ -34,8 +34,8 @@ const defaultData: any[] = [
   },
   {
     id: "8fbd3ee1-4bc0-4e3d-91db-3cf9b361b7b2",
-    description: "teste 2asdads",
-    date: "2022-02-02T00:00:00.000Z",
+    description: "outra coisa 2asdads",
+    date: "2022-02-10T00:00:00.000Z",
     value: 1010.5,
     paid: false,
     fromAccount: "384ff758-7d06-4343-8bc5-6ad95b8b1e97",
@@ -56,6 +56,12 @@ const statusFormatter = (bool: boolean) => {
 
 export default function Table() {
   const [data, setData] = React.useState(() => [...defaultData]);
+  const [rowSelection, setRowSelection] = React.useState({});
+  const [rowSelectionCount, setRowSelectionCount] = React.useState(0);
+
+  useEffect(() => {
+    setRowSelectionCount(Object.keys(rowSelection).length);
+  }, [rowSelection]);
 
   const columns = [
     {
@@ -126,7 +132,11 @@ export default function Table() {
       id: "value",
       header: () => "Valor",
       cell: (info) => (
-        <p className={`${info.getValue() < 0 ? "text-danger" : "text-success"} mb-0`}>
+        <p
+          className={`${
+            info.getValue() < 0 ? "text-danger" : "text-success"
+          } mb-0`}
+        >
           {toCurrency(info.getValue())}
         </p>
       ),
@@ -137,7 +147,29 @@ export default function Table() {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    enableRowSelection: true,
+    state: {
+      rowSelection,
+    },
+    onRowSelectionChange: setRowSelection,
   });
+
+  const dataFiltering = (str: string) => {
+    if (str === "") setData([...defaultData]);
+    else {
+      if ("pago".includes(str.toLowerCase())) str = "true"
+      if ("a pagar".includes(str.toLowerCase())) str = "false"
+
+      setData(
+        defaultData.filter((el) => {
+          const objValues = Object.values(el);
+          return objValues.some(val =>
+            String(val).includes(str)
+          );
+        })
+      );
+    }
+  };
 
   return (
     <>
@@ -173,16 +205,33 @@ export default function Table() {
       <div className={`d-block w-100 ${styles.tableFooter}`}>
         <div className="row w-100">
           <div className="col-4">
-            Mostrando <b>{table.getRowModel().rows.length} registros</b>
+            Mostrando{" "}
+            <b>
+              {table.getRowModel().rows.length} registro
+              {table.getRowModel().rows.length > 1 ? "s" : ""}
+            </b>
           </div>
           <div className="col-4">
-            <InputGroup leftIcon={<FontAwesomeIcon icon={["fas", 'magnifying-glass']} />}>
-              <FormInput type="text" placeholder="Pesquisar" />
+            <InputGroup
+              leftIcon={<FontAwesomeIcon icon={["fas", "magnifying-glass"]} />}
+            >
+              <FormInput
+                type="text"
+                placeholder="Pesquisar"
+                onInput={(event: React.FormEvent<HTMLInputElement>) =>
+                  dataFiltering(event.currentTarget.value)
+                }
+              />
             </InputGroup>
           </div>
-          <div className="col-4 text-end">
-            <Button variant="danger">Deletar 1 registro</Button>
-          </div>
+          {rowSelectionCount > 0 && (
+            <div className="col-4 text-end">
+              <Button variant="danger">
+                Deletar {rowSelectionCount} registro
+                {rowSelectionCount > 1 ? "s" : ""}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </>
