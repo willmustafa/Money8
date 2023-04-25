@@ -46,6 +46,10 @@ body{
   background-color: var(--light);
 }
 
+body > div:nth-child(5) {
+  display: none !important;
+}
+
 hr {
   border-top: 1px solid;
 }

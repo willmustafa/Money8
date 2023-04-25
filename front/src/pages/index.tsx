@@ -5,6 +5,7 @@ import TagColor from "@/layouts/core/components/UI/tagColor/TagColor";
 import CategoryChart from "@/layouts/core/components/CategoryChart/CategoryChart";
 import InfoCardsHeader from "@/layouts/modules/InfoCardsHeader";
 import CreditCardsSlider from "@/layouts/core/components/CreditCardsSlider/CreditCardsSlider";
+import FiscalBalanceChart from "@/layouts/core/components/FiscalBalanceChart/FiscalBalanceChart";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="row mt-4">
         <div className="col-12 col-lg-6">
           <CreditCardsSlider />
+          <FiscalBalanceChart />
         </div>
         <div className="col-12 col-lg-6 gap-3 d-flex flex-column">
           <DoodleAlert

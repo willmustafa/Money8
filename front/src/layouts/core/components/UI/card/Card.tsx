@@ -5,6 +5,7 @@ import _FullWidth from "./_fullWidth";
 
 export interface ICard {
   title?: string;
+  subtitle?: string;
   children?: React.ReactNode;
   fullWidth?: boolean;
   overflowX?: boolean;

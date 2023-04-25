@@ -10,8 +10,21 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Provider } from "react-redux";
+import * as echarts from "echarts";
 
 library.add(fas);
+
+echarts.registerTheme("default", {
+  color: [
+    "#1667B8",
+    "#1EAAE7",
+    "#2DCE89",
+    "#F5365C",
+    "#6259CA",
+    "#FF7A5B",
+    "#7E7E7E",
+  ],
+});
 
 export default function App({ Component, router, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest);
