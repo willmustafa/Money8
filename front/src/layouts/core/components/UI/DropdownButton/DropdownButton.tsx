@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler, useEffect, useRef, useState } from "react";
 import styles from "./DropdownButton.module.css";
 
 interface IDropdownButton {
@@ -13,8 +13,26 @@ export default function DropdownButton(props: IDropdownButton) {
     setIsOpen(!isOpen);
   }
 
+  const useOutsideAlerter = (ref: React.MutableRefObject<any>) => {
+    useEffect(() => {
+      function handleClickOutside(event: Event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsOpen(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
+
   return (
-    <div className={styles.dropdown}>
+    <div className={styles.dropdown} ref={wrapperRef}>
       <div className={`${styles.inner} ${isOpen ? styles.active : ''}`} onClick={toggleDropdown}>
         {props.button}
       </div>

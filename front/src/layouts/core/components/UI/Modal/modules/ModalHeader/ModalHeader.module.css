@@ -1,0 +1,15 @@
+.modalHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 26px 12px;
+}
+
+.closeButton {
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    color: var(--indigo)
+}

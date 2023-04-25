@@ -1,0 +1,44 @@
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 3rem;
+}
+
+.imgOutter {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.imgInner {
+  border-radius: 50%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.editIcon {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    border-radius: 50%;
+    background-color: var(--indigo);
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light);
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.editIcon:hover{
+    background-color: var(--violet);
+}

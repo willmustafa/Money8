@@ -3,7 +3,7 @@ import { ICard } from "./Card";
 
 export default function _CommonCard(props: ICard) {
   return (
-    <div>
+    <div className="w-100">
       <h4 className="w-100">
         <b>{props.title}</b>
       </h4>

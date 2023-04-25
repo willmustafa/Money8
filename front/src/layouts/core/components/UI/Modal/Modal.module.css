@@ -1,0 +1,46 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--light);
+  border-radius: 4px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.modal > div {
+  padding-left: 26px;
+  padding-right: 26px;
+}
+
+.modalOverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark);
+    opacity: 0.7;
+    z-index: 999;
+}
+
+.modalBody {
+  padding-bottom: 13px;
+}
+
+.xl {
+  width: 80vw;
+}
+
+.lg {
+  width: 60vw;
+}
+
+.md {
+  width: 40vw;
+}
+
+.sm {
+  width: 20vw;
+}
