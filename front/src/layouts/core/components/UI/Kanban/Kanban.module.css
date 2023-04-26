@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
+}
+
+.button {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  justify-content: center;
+  height: 2.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardHeader .cardInfo {
+  display: flex;
+  font-size: 0.8rem;
+  flex-direction: column;
+  text-align: right;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  padding-top: 35px;
+  gap: 15px
+}
+
+.cardBody .title {
+  font-weight: bold;
+  text-transform: uppercase;
+}

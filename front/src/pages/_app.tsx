@@ -6,12 +6,15 @@ import { wrapper } from "@/store/store";
 import "@/styles/globals/base.css";
 import "@/styles/globals/global.css";
 import "@/styles/globals/react-datepicker.css";
+import "@/styles/globals/kanban-min.css";
 import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Provider } from "react-redux";
 import * as echarts from "echarts";
+import { registerLicense } from '@syncfusion/ej2-base';
 
+registerLicense(process.env.SYNCFUSION_KEY ?? '');
 library.add(fas);
 
 echarts.registerTheme("default", {

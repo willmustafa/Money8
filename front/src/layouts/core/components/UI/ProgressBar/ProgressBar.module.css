@@ -1,0 +1,74 @@
+.progressBar {
+  height: 20px;
+  background-color: #e0e0de;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #3d9970;
+}
+
+.progressBarWrapper{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.small {
+    font-size: 0.9rem;
+}
+
+.bg-dark {
+  background-color: var(--dark);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.bg-steel-blue {
+  background-color: var(--steel-blue);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.bg-light-red {
+  background-color: var(--light-red);
+}
+
+.bg-indigo {
+  background-color: var(--indigo);
+}
+
+.bg-violet {
+  background-color: var(--violet);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}

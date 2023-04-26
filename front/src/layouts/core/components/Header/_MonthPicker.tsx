@@ -1,6 +1,6 @@
 import { selectMonthState, setMonth } from "@/store/month.slice";
 import React from "react";
-import ReactDatePicker, { registerLocale } from "react-datepicker";
+import ReactDatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import ptBR from 'date-fns/locale/pt-BR';
 

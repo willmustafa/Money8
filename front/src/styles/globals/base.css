@@ -5,7 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root{
-  --dark: #0E0E23;
+  --dark: #0e0e23;
+  --dark-50: rgb(14, 14, 35, 0.5);
   --white: #FFFFFF;
   --light: #F8F9FE;
   --light-rgb: 255, 255, 255;
