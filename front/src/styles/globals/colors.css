@@ -26,6 +26,11 @@
   color: var(--blue);
 }
 
+.bg-dark {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
 .bg-green {
   background-color: var(--green);
 }
@@ -52,4 +57,8 @@
 
 .bg-blue {
   background-color: var(--blue);
+}
+
+.text-light {
+  color: var(--light)
 }

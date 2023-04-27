@@ -1,0 +1,80 @@
+.section {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1;
+  justify-content: center;
+}
+
+.hero {
+  color: var(--light);
+}
+
+.hero h1 {
+  font-size: 70px;
+  line-height: 1.1;
+  font-weight: bold;
+  color: var(--light);
+}
+
+.hero p {
+  margin: 40px 0 50px;
+}
+
+.bg-banner {
+  background: url("/backgrounds/banner.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner-right {
+  position: absolute;
+  bottom: -94px;
+  left: -74px;
+}
+
+.banner-right img,
+.featureImage img {
+  width: 100%;
+  height: auto;
+}
+
+.featureImage {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.featuresWrapper {
+  background: var(--indigo);
+  border-radius: 1.6875rem;
+  padding: 4rem;
+  color: var(--light);
+  text-align: center;
+}
+
+.featureItem h4 {
+  font-weight: 600;
+  margin-bottom: 0.9375rem;
+  color: var(--light);
+}
+
+.featureIcon {
+  margin-bottom: 1.5rem;
+  font-size: 4rem;
+}
+
+.footer {
+  width: 100vw;
+  height: 50px;
+  background: var(--gray);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -14,11 +14,13 @@ export interface IButton extends React.ButtonHTMLAttributes<Element> {
     | "dark"
     | "transparent";
   outline?: boolean;
+  lg?: boolean;
 }
 
 export default function Button(props: IButton) {
   const getClasses = () => {
     let classes = `${styles.button} `;
+    if (props.lg) classes += `${styles.lg} `;
     if (props.className) classes += `${props.className} `;
     if (props.variant && !props.outline)
       classes += styles[`button-${props.variant}`] + " ";
