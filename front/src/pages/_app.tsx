@@ -1,5 +1,6 @@
 const { library } = require("@fortawesome/fontawesome-svg-core");
 const { fas } = require("@fortawesome/free-solid-svg-icons");
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import Transition from "@/layouts/core/components/UI/Transition/Transition";
 import Layout from "@/layouts/default/Layout";
 import { wrapper } from "@/store/store";
@@ -17,6 +18,7 @@ import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 registerLicense(process.env.SYNCFUSION_KEY ?? "");
 library.add(fas);
+library.add(fab);
 
 echarts.registerTheme("default", {
   color: [

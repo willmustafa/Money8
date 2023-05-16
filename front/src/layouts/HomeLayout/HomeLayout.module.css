@@ -69,12 +69,48 @@
 
 .footer {
   width: 100vw;
-  height: 50px;
-  background: var(--gray);
+  height: 70px;
+  background: var(--dark-blue);
   position: absolute;
   bottom: 0;
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+}
+
+.footer a {
+  color: var(--light);
+  transition: color 0.25s ease;
+}
+
+.footer a:hover {
+  color: var(--light-blue);
+}
+
+.footer svg {
+  font-size: 1.2rem;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.input {
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid var(--indigo);
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
 }

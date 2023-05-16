@@ -53,13 +53,13 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#first" className="nav-link" scroll={false}>
-                About
+              <Link href="#about" className="nav-link" scroll={false}>
+                Sobre
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#second" className="nav-link" scroll={false}>
-                Contact
+              <Link href="#contact" className="nav-link" scroll={false}>
+                Contato
               </Link>
             </li>
           </ul>

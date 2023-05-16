@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./HomeLayout.module.css";
 import Button from "../core/components/UI/button/Button";
 import Image from "next/image";
@@ -6,8 +6,20 @@ import financeDoodle from "@/assets/images/backgrounds/finance-doodle.png";
 import dashboard from "@/assets/images/backgrounds/dashboard.png";
 import Navbar from "./components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
 const Layout = ({ children }: React.PropsWithChildren) => {
+  async function sendMessage(event: any) {
+    let name = event.target.name.value;
+    let email = event.target.email.value;
+    let message = event.target.message.value;
+
+    await axios.post("https://formspree.io/f/meqwjloj", {
+      email,
+      message: `Money8: From: ${name} - Message: ${message}`,
+    });
+  }
+
   return (
     <div className={styles.layout}>
       <Navbar />
@@ -43,26 +55,18 @@ const Layout = ({ children }: React.PropsWithChildren) => {
               </div>
             </div>
           </section>
-          <section id="first" className={styles.section}>
+          <section id="about" className={styles.section}>
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-6 col-lg-5">
                   <div className="features-content">
                     <h1 className="mt-n4">
-                      <b>Fast &amp; powerful to get out of your way</b>
+                      <b>Nunca mais se assuste com a conta no final do mês</b>
                     </h1>
-                    <p>
-                      Aenean amet netus aliquam elit eu, sagittis id natoque id.
+                    <p className="mt-4">
+                      Organize suas finanças de forma simples e rápida, com
+                      opção para importar diretamente seu extrato do banco!
                     </p>
-                    <div className="features-counter">
-                      <span>Trusted By </span>
-                      <br />
-                      <strong>
-                        <span className="counter">3000</span>+
-                      </strong>
-                      <br />
-                      <p>Company</p>
-                    </div>
                   </div>
                 </div>
                 <div className="col-md-6 col-lg-7">
@@ -78,12 +82,12 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                   <div className="col-md-4">
                     <div className={`${styles.featureItem} col-10`}>
                       <div className={styles.featureIcon}>
-                        <FontAwesomeIcon icon={["fas", "clock"]} />
+                        <FontAwesomeIcon icon={["fas", "file-lines"]} />
                       </div>
-                      <h4>Deadlines will never surprise you again.</h4>
+                      <h4>Controle total</h4>
                       <p>
-                        re here every step of the way making sure you and your
-                        team deliver
+                        Gastos, receitas, investimentos, gerencie tudo em um só
+                        lugar.
                       </p>
                     </div>
                   </div>
@@ -91,12 +95,12 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                   <div className="col-md-4">
                     <div className={`${styles.featureItem} col-10`}>
                       <div className={styles.featureIcon}>
-                        <FontAwesomeIcon icon={["fas", "clock"]} />
+                        <FontAwesomeIcon icon={["fas", "quote-left"]} />
                       </div>
-                      <h4>Deadlines will never surprise you again.</h4>
+                      <h4>Insights</h4>
                       <p>
-                        re here every step of the way making sure you and your
-                        team deliver
+                        Tudo é mais simples com a ajuda de gráficos explicativos
+                        e mensagens de apoio.
                       </p>
                     </div>
                   </div>
@@ -104,12 +108,12 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                   <div className="col-md-4">
                     <div className={`${styles.featureItem} col-10`}>
                       <div className={styles.featureIcon}>
-                        <FontAwesomeIcon icon={["fas", "clock"]} />
+                        <FontAwesomeIcon icon={["fas", "brain"]} />
                       </div>
-                      <h4>Deadlines will never surprise you again.</h4>
+                      <h4>Importar dados</h4>
                       <p>
-                        re here every step of the way making sure you and your
-                        team deliver
+                        Nos envie o arquivo do extrato do banco e nós
+                        re-organizamos ele para você!
                       </p>
                     </div>
                   </div>
@@ -117,13 +121,13 @@ const Layout = ({ children }: React.PropsWithChildren) => {
               </div>
             </div>
           </section>
-          <section id="second" className={`${styles.section} bg-dark`}>
+          <section className={`${styles.section} bg-dark-blue`}>
             <div className="container pt-5 mt-5 pb-5 mb-5">
               <div className="row">
                 <div className="col-12">
                   <div className="text-center mb-4 col-12 d-flex justify-content-center">
                     <h1 className="text-light col-6">
-                      <b>Move work forward from anywhere</b>
+                      <b>Nossa pilar é a simplicidade</b>
                     </h1>
                   </div>
                   <div className={styles.featureImage}>
@@ -131,32 +135,90 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                   </div>
                   <div className="text-center col-12 d-flex justify-content-center mt-5">
                     <p className="text-light col-6">
-                      re here every step of the way making sure you and your
-                      team deliver. re here every step of the way making sure
-                      you and your team deliver
+                      Chega de ficar montando planilhas ou usando aplicativos
+                      que cobram para utilizar e só dificultam seu caminho para
+                      o sucesso.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-
-          <section className={styles.section}>
+          <section className={styles.section} id="contact">
             <div className="container">
               <div className="row">
-                <div className="col-12 text-center">
-                  <div className="section-title-center pb-8">
-                    <h2 className="mt-n3 mt-md-n4">Get free for 14 Days</h2>
-                    <p>
-                      Aenean amet netus aliquam elit eu, sagittis id natoque id.
-                      Purus augue fermentum dui aliquam dui vel.
-                    </p>
-                  </div>
+                <div className="col-12 text-center mb-5">
+                  <h1>
+                    <b>Quer fazer parte do projeto?</b>
+                  </h1>
+                </div>
+                <div className="col-12">
+                  <form method="POST" onSubmit={sendMessage}>
+                    <div className="form-group">
+                      <label htmlFor="name" className={styles.label}>
+                        Name
+                      </label>
+                      <input
+                        name="name"
+                        type="text"
+                        placeholder="Willian Mustafa"
+                        required
+                        className={styles.input}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="email" className={styles.label}>
+                        Email
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        placeholder="ceo@google.com"
+                        required
+                        className={styles.input}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="message" className={styles.label}>
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        placeholder="Quero contribuir e te mandar um PIX!"
+                        required
+                        className={styles.input}
+                      ></textarea>
+                    </div>
+                    <Button variant="primary" type="submit" lg>
+                      Enviar
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>
-            <footer className={styles.footer}>
-              Feito por Willian Mustafa
+            <footer className={`${styles.footer} bg-dark-blue`}>
+              <div className="container d-flex justify-content-between">
+                <span>Feito por Willian Mustafa</span>
+                <div className="d-flex gap-3">
+                  <a href="https://github.com/willmustafa" target="_blank">
+                    <FontAwesomeIcon icon={["fab", "github"]} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/back.tofront_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={["fab", "instagram"]} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/willianmustafa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={["fab", "linkedin"]} />
+                  </a>
+                </div>
+              </div>
             </footer>
           </section>
         </div>
