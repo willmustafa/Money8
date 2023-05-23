@@ -15,37 +15,37 @@ function Sidebar() {
     {
       name: "Dashboard",
       icon: "home",
-      link: '/'
+      link: '/dashboard'
     },
     {
       name: "Transações",
       icon: "tasks",
-      link: 'transacoes'
+      link: '/dashboard/transacoes'
     },
     {
       name: "Contas",
       icon: "university",
-      link: 'contas'
+      link: '/dashboard/contas'
     },
     {
       name: "Cartões",
       icon: "credit-card",
-      link: 'cartoes'
+      link: '/dashboard/cartoes'
     },
     {
       name: "Objetivos",
       icon: "bullseye",
-      link: 'objetivos'
+      link: '/dashboard/objetivos'
     },
     {
       name: "Categorias",
       icon: "tags",
-      link: 'categorias'
+      link: '/dashboard/categorias'
     },
     {
       name: "Tags",
       icon: "hashtag",
-      link: 'tags'
+      link: '/dashboard/tags'
     },
   ];
   const isOpen = useSelector(selectSidebarState)
@@ -76,10 +76,9 @@ interface LiProps {
 
 function Li({ icon, name, link }: LiProps) {
   const router = useRouter();
-  const parsedLink = link === "/" ? "" : link 
   
   return (
-    <Link href={link} className={router.pathname == `/${parsedLink}` ? styles.menuActive : ""}>
+    <Link href={link} className={router.pathname == `${link}` ? styles.menuActive : ""}>
       <i>
         <FontAwesomeIcon icon={["fas", icon]} />
       </i>

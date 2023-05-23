@@ -45,6 +45,7 @@ body{
   color: var(--dark);
   text-align: left;
   background-color: var(--light);
+  scroll-behavior:smooth
 }
 
 body > div:nth-child(5) {
