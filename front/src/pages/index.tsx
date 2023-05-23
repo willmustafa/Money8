@@ -1,4 +1,5 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
 import HomeLayout from 'src/layouts/HomeLayout/HomeLayout'
 
 export default function Home() {
@@ -6,11 +7,10 @@ export default function Home() {
 
   return (
     <div>
-      <a href="/api/auth/login">Login</a>
-      <a href="/api/auth/logout">Logout</a>
+      <Link href="/api/auth/login">Login</Link>
+      <Link href="/api/auth/logout">Logout</Link>
       {user && (
         <div>
-          <img src={user.picture} alt={user.name} />
           <h2>{user.name}</h2>
           <p>{user.email}</p>
           <p>{JSON.stringify(user)}</p>

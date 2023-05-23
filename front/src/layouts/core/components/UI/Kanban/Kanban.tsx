@@ -65,7 +65,7 @@ export default function Kanban(this: any) {
     );
   }
 
-  function cardTemplate(props: any) {
+  const cardTemplate: string | any = (props: { [key: string]: any }) => {
     return (
       <div className="card-template">
         <div className={styles.cardHeader}>
@@ -80,7 +80,7 @@ export default function Kanban(this: any) {
         <div className={styles.cardBody}>
           <div className={styles.title}>{props.name}</div>
           <ProgressBar
-          color={props.color}
+            color={props.color}
             percentage={50}
             max={props.value}
             subText="Você deve economizar R$ 500 por mês para atingir esse objetivo"
@@ -88,7 +88,7 @@ export default function Kanban(this: any) {
         </div>
       </div>
     );
-  }
+  };
 
   return (
     <div className="row">
