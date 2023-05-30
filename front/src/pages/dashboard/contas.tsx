@@ -26,14 +26,40 @@ export default function Contas() {
         <AccountCard
           bg="generic"
           title="NuBank"
-          icon={
-            <Image
-              src="/institutions/nubank.svg"
-              alt="bank logo"
-              width={55}
-              height={30}
-            />
-          }
+          institution="nubank"
+          text="R$ 35.000,00"
+          subtext="12%"
+          handleEdit={accountEditHandler}
+          handleImport={accountImportHandler}
+        />
+      </div>
+      <div className="col-3">
+        <AccountCard
+          bg="generic"
+          title="Itaú"
+          institution="c6"
+          text="R$ 35.000,00"
+          subtext="12%"
+          handleEdit={accountEditHandler}
+          handleImport={accountImportHandler}
+        />
+      </div>
+      <div className="col-3">
+        <AccountCard
+          bg="generic"
+          title="Itaú"
+          institution="inter"
+          text="R$ 35.000,00"
+          subtext="12%"
+          handleEdit={accountEditHandler}
+          handleImport={accountImportHandler}
+        />
+      </div>
+      <div className="col-3">
+        <AccountCard
+          bg="generic"
+          title="Itaú"
+          institution="inter"
           text="R$ 35.000,00"
           subtext="12%"
           handleEdit={accountEditHandler}

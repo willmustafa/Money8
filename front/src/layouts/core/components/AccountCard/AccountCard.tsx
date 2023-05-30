@@ -2,11 +2,14 @@ import React, { MouseEventHandler, useEffect, useRef, useState } from "react";
 import styles from "./AccountCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomCard from "../UI/customCard/customCard";
+import InstitutionIcon, {
+  InstitutionType,
+} from "../InstitutionIcon/InstitutionIcon";
 
 interface ICustomCard {
   bg?: "plus" | "generic";
   title: string;
-  icon?: React.ReactNode;
+  institution?: InstitutionType;
   text?: string;
   subtext?: string;
   creditCard?: boolean;
@@ -14,7 +17,6 @@ interface ICustomCard {
   handleImport?: MouseEventHandler;
   handleCreate?: MouseEventHandler;
 }
-
 
 export default function AccountCard(props: ICustomCard) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -30,56 +32,65 @@ export default function AccountCard(props: ICustomCard) {
 
   return (
     <CustomCard {...props}>
-        <div className={`${styles.customCardInner} ${styles.expansive}`}>
+      <div className={`${styles.customCardInner} ${styles.expansive}`}>
         <div className={styles.cardHeader}>
-            <span>{props.title}</span>
-            <div className={`d-flex gap-3 ${styles.iconWrapper}`}>
+          <span>{props.title}</span>
+          <div className={`d-flex gap-3 ${styles.iconWrapper}`}>
             <span
-                className={styles.click}
-                onClick={props.handleEdit ?? function () {}}
+              className={styles.click}
+              onClick={props.handleEdit ?? function () {}}
             >
-                <FontAwesomeIcon icon={["fas", "edit"]} />
+              <FontAwesomeIcon icon={["fas", "edit"]} />
             </span>
             <span
-                className={styles.click}
-                onClick={props.handleImport ?? function () {}}
+              className={styles.click}
+              onClick={props.handleImport ?? function () {}}
             >
-                <FontAwesomeIcon icon={["fas", "cloud-arrow-up"]} />
+              <FontAwesomeIcon icon={["fas", "cloud-arrow-up"]} />
             </span>
-            </div>
+          </div>
         </div>
         <div className={styles.cardBody} onClick={() => toggleExpand()}>
-            <div>{props.icon}</div>
-            <div className="d-block">
+          <div>
+            {props.institution ? (
+              <InstitutionIcon institution={props.institution} />
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="d-block">
             <h5 className="text-white fw-bold">{props.text}</h5>
             <p className="mb-0">{props.subtext}</p>
-            </div>
-            <div
+          </div>
+          <div
             ref={contentRef}
             className={`d-flex gap-1 flex-column mb-3 ${
-                isExpanded ? styles.collapsibleContentActive : ""
+              isExpanded ? styles.collapsibleContentActive : ""
             } ${styles.collapsibleContent}`}
             style={{ maxHeight: contentHeight }}
-            >
+          >
             <div className="d-block">
-                <p className="mb-0">Total na conta:</p>
-                <h5 className="text-white fw-bold">{props.text}</h5>
-            </div>
-            <div className="d-block">
-                <p className="mb-0">Destinado a um objetivo:</p>
-                <h5 className="text-white fw-bold">{props.text}</h5>
+              <p className="mb-0">Total na conta:</p>
+              <h5 className="text-white fw-bold">{props.text}</h5>
             </div>
             <div className="d-block">
-                <p className="mb-0">Disponível na Conta Corrente:</p>
-                <h5 className="text-white fw-bold">{props.text}</h5>
+              <p className="mb-0">Destinado a um objetivo:</p>
+              <h5 className="text-white fw-bold">{props.text}</h5>
             </div>
+            <div className="d-block">
+              <p className="mb-0">Disponível na Conta Corrente:</p>
+              <h5 className="text-white fw-bold">{props.text}</h5>
             </div>
+          </div>
         </div>
-        <span className={`${styles.arrowDownFixed}`} onClick={() => toggleExpand()}>
-            {!isExpanded && <FontAwesomeIcon icon={["fas", "angles-down"]} />}
-            {isExpanded && <FontAwesomeIcon icon={["fas", "angles-up"]} />}
+        <span
+          className={`${styles.arrowDownFixed}`}
+          onClick={() => toggleExpand()}
+        >
+          {!isExpanded && <FontAwesomeIcon icon={["fas", "angles-down"]} />}
+          {isExpanded && <FontAwesomeIcon icon={["fas", "angles-up"]} />}
         </span>
-        </div>
+      </div>
     </CustomCard>
   );
 }

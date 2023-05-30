@@ -16,7 +16,7 @@ import * as echarts from "echarts";
 import { registerLicense } from "@syncfusion/ej2-base";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 
-registerLicense(process.env.SYNCFUSION_KEY ?? "");
+registerLicense(process.env.NEXT_PUBLIC_SYNCFUSION_KEY ?? "");
 library.add(fas);
 library.add(fab);
 
