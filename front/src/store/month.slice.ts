@@ -19,13 +19,13 @@ export const monthSlice = createSlice({
     },
   },
 
-  extraReducers: {
-    [HYDRATE]: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(HYDRATE, (state, action) => {
       return {
         ...state,
-        ...action.payload,
+        ...(action as any).payload,
       };
-    },
+    })
   },
 });
 

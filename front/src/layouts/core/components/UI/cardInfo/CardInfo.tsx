@@ -11,6 +11,7 @@ interface ICardInfo {
   icon: IconName;
   percentage?: number;
   iconColor?: colors;
+  isLowerBetter?: boolean;
 }
 
 export default function CardInfo(props: ICardInfo) {
@@ -21,7 +22,7 @@ export default function CardInfo(props: ICardInfo) {
   const formatedPercentage =
     (props.percentage || 0) > 0 ? `+${props.percentage}` : props.percentage;
   const percentageColor =
-    (props?.percentage || 0) >= 0 ? "color-green" : "color-danger";
+    (props?.percentage || 0) >= 0 || props.isLowerBetter ? "color-green" : "color-danger";
 
   return (
     <div className={styles.card}>

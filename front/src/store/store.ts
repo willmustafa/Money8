@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { sidebarSlice } from "./sidebar.slice";
 import { createWrapper } from "next-redux-wrapper";
-import {monthSlice} from "./month.slice";
+import { monthSlice } from "./month.slice";
+import { userSlice } from "./user.slice";
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [sidebarSlice.name]: sidebarSlice.reducer,
       [monthSlice.name]: monthSlice.reducer,
+      [userSlice.name]: userSlice.reducer,
     },
     devTools: true,
   });
@@ -22,3 +24,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 >;
 
 export const wrapper = createWrapper<AppStore>(makeStore);
+
+export const store = makeStore();
+export default store;

@@ -157,15 +157,13 @@ export default function Table() {
   const dataFiltering = (str: string) => {
     if (str === "") setData([...defaultData]);
     else {
-      if ("pago".includes(str.toLowerCase())) str = "true"
-      if ("a pagar".includes(str.toLowerCase())) str = "false"
+      if ("pago".includes(str.toLowerCase())) str = "true";
+      if ("a pagar".includes(str.toLowerCase())) str = "false";
 
       setData(
         defaultData.filter((el) => {
           const objValues = Object.values(el);
-          return objValues.some(val =>
-            String(val).includes(str)
-          );
+          return objValues.some((val) => String(val).includes(str));
         })
       );
     }
@@ -173,6 +171,40 @@ export default function Table() {
 
   return (
     <>
+      <div className={`d-block w-100 ${styles.tableInfo}`}>
+        <div className="row w-100">
+          <div className="col-4">
+            <span>
+              Mostrando{" "}
+              <b>
+                {table.getRowModel().rows.length} registro
+                {table.getRowModel().rows.length > 1 ? "s" : ""}
+              </b>
+            </span>
+          </div>
+          <div className="col-4">
+            <InputGroup
+              leftIcon={<FontAwesomeIcon icon={["fas", "magnifying-glass"]} />}
+            >
+              <FormInput
+                type="text"
+                placeholder="Pesquisar"
+                onInput={(event: React.FormEvent<HTMLInputElement>) =>
+                  dataFiltering(event.currentTarget.value)
+                }
+              />
+            </InputGroup>
+          </div>
+          {rowSelectionCount > 0 && (
+            <div className="col-4 text-end">
+              <Button variant="danger">
+                Deletar {rowSelectionCount} registro
+                {rowSelectionCount > 1 ? "s" : ""}
+              </Button>
+            </div>
+          )}
+        </div>
+      </div>
       <table className={styles.table}>
         <thead className={styles.thead}>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -202,38 +234,6 @@ export default function Table() {
           ))}
         </tbody>
       </table>
-      <div className={`d-block w-100 ${styles.tableFooter}`}>
-        <div className="row w-100">
-          <div className="col-4">
-            Mostrando{" "}
-            <b>
-              {table.getRowModel().rows.length} registro
-              {table.getRowModel().rows.length > 1 ? "s" : ""}
-            </b>
-          </div>
-          <div className="col-4">
-            <InputGroup
-              leftIcon={<FontAwesomeIcon icon={["fas", "magnifying-glass"]} />}
-            >
-              <FormInput
-                type="text"
-                placeholder="Pesquisar"
-                onInput={(event: React.FormEvent<HTMLInputElement>) =>
-                  dataFiltering(event.currentTarget.value)
-                }
-              />
-            </InputGroup>
-          </div>
-          {rowSelectionCount > 0 && (
-            <div className="col-4 text-end">
-              <Button variant="danger">
-                Deletar {rowSelectionCount} registro
-                {rowSelectionCount > 1 ? "s" : ""}
-              </Button>
-            </div>
-          )}
-        </div>
-      </div>
     </>
   );
 }

@@ -7,7 +7,6 @@
   top: 0;
   left: 0;
   z-index: 999;
-  overflow-x: hidden;
 }
 
 .sidebar.expanded {
@@ -66,4 +65,39 @@
 .logo-container img {
   width: 100%;
   height: auto;
+}
+
+.menuCollapseWrapper {
+  position: absolute;
+  right: -16px;
+  top: calc(var(--sidebar-logo-height) - 16px);
+  z-index: 99;
+}
+
+.menuCollapseInner {
+  width: 32px;
+  height: 32px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  border: 0px none;
+  border-radius: 50%;
+  color: var(--dark);
+  cursor: pointer;
+  opacity: 1;
+  outline: 0px;
+  transition: background-color 100ms linear 0s, color 100ms linear 0s,
+    opacity 350ms cubic-bezier(0.2, 0, 0, 1) 0s;
+}
+
+.menuCollapseInner:hover{
+  background-color: var(--violet);
+  color: var(--white);
+}
+
+.sidebar:not(.expanded) .menuCollapseInner {
+  transform: rotate(180deg);
+  transform-origin: 16px center 0px;
 }

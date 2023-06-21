@@ -6,63 +6,71 @@ import logo from "../../../../../public/logo.png";
 import logoCollapsed from "../../../../../public/logo-collapsed.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectSidebarState } from "@/store/sidebar.slice";
 import { useRouter } from "next/router";
+import { toggleSidebarState } from '@/store/sidebar.slice';
 
 function Sidebar() {
   const routes: LiProps[] = [
     {
       name: "Dashboard",
       icon: "home",
-      link: '/dashboard'
+      link: "/dashboard",
     },
     {
       name: "Transações",
       icon: "tasks",
-      link: '/dashboard/transacoes'
+      link: "/dashboard/transacoes",
     },
     {
       name: "Contas",
       icon: "university",
-      link: '/dashboard/contas'
+      link: "/dashboard/contas",
     },
     {
       name: "Cartões",
       icon: "credit-card",
-      link: '/dashboard/cartoes'
+      link: "/dashboard/cartoes",
     },
     {
       name: "Objetivos",
       icon: "bullseye",
-      link: '/dashboard/objetivos'
+      link: "/dashboard/objetivos",
     },
     {
       name: "Categorias",
       icon: "tags",
-      link: '/dashboard/categorias'
+      link: "/dashboard/categorias",
     },
     {
       name: "Tags",
       icon: "hashtag",
-      link: '/dashboard/tags'
+      link: "/dashboard/tags",
     },
   ];
-  const isOpen = useSelector(selectSidebarState)
-
+  const isOpen = useSelector(selectSidebarState);
+  const dispatch = useDispatch()
   const sidebarClass = isOpen ? styles.expanded : "";
 
   return (
     <div className={`${styles.sidebar} ${sidebarClass}`}>
       <div className={styles["logo-container"]}>
-        {isOpen ? (<Image src={logo} alt="Logo" />): (<Image src={logoCollapsed} alt="Logo" />)}
-        
-        
+        {isOpen ? (
+          <Image src={logo} alt="Logo" />
+        ) : (
+          <Image src={logoCollapsed} alt="Logo" />
+        )}
       </div>
       <div className={styles.menu}>
         {routes.map((route, index) => (
           <Li {...route} key={index} />
         ))}
+      </div>
+      <div className={styles.menuCollapseWrapper}>
+        <span className={styles.menuCollapseInner} onClick={() => dispatch(toggleSidebarState())}>
+          <FontAwesomeIcon icon={['fas', 'arrow-left']} />
+        </span>
       </div>
     </div>
   );
@@ -76,9 +84,12 @@ interface LiProps {
 
 function Li({ icon, name, link }: LiProps) {
   const router = useRouter();
-  
+
   return (
-    <Link href={link} className={router.pathname == `${link}` ? styles.menuActive : ""}>
+    <Link
+      href={link}
+      className={router.pathname == `${link}` ? styles.menuActive : ""}
+    >
       <i>
         <FontAwesomeIcon icon={["fas", icon]} />
       </i>

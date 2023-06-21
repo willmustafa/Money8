@@ -14,13 +14,19 @@ interface ICustomCard {
   handleEdit?: MouseEventHandler;
   handleImport?: MouseEventHandler;
   handleCreate?: MouseEventHandler;
+  innerProgression?: number;
 }
 
 export default function CreditCardCard(props: ICustomCard) {
   return (
     <CustomCard {...props}>
       <div className={`${styles.customCardInner} ${styles.expansive}`}>
-        <div className={`d-flex flex-column w-100 ${styles.innerProgression}`} style={{"--innerProgression": "50%"} as any}>
+        <div
+          className={`d-flex flex-column w-100 ${
+            props.innerProgression ? styles.innerProgression : ""
+          }`}
+          style={{ "--innerProgression": props.innerProgression } as any}
+        >
           <div className={styles.cardHeader}>
             <span>Fatura atual</span>
             <div className={`d-flex gap-3 ${styles.iconWrapper}`}>
