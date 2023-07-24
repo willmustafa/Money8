@@ -81,7 +81,7 @@
 }
 
 .button-outline {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 .button-outline-primary {
@@ -117,6 +117,12 @@
 .button-outline-light {
   color: var(--light);
   border-color: var(--light);
+}
+
+.button-outline-light:hover {
+  color: var(--dark-blue);
+  border-color: var(--dark-blue);
+  background-color: var(--light);
 }
 
 .button-outline-dark {

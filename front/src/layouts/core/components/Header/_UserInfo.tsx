@@ -1,23 +1,28 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import profile from "@/assets/images/profile.png";
 import styles from "./Header.module.css";
 import DropdownButton from "../UI/DropdownButton/DropdownButton";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { selectUserState } from "@/store/user.slice";
+import { useSelector } from "react-redux";
+import ProfileAvatar from "../ProfileAvatar/ProfileAvatar";
 
-export default function UserInfo() {
+export default function UserInfo() {  
+  const currentUser = useSelector(selectUserState)
+
   return (
     <DropdownButton
       button={
         <div className={styles.user_wrapper}>
           <div className={`${styles.user_info} d-none d-md-flex`}>
-            <b>Thaila Naga</b>
+            <b>{currentUser?.displayName ?? currentUser?.email}</b>
             <span>Premium</span>
           </div>
           <div className={styles.img_wrapper}>
-            <Image src={profile} alt="profile pic" />
+            <ProfileAvatar />
           </div>
         </div>
       }
@@ -31,12 +36,12 @@ function DropdownMenuItems() {
   const menuLinks: IMenuItem[] = [
     {
       icon: ["fas", "user"],
-      link: "/meu-perfil",
+      link: "/dashboard/meu-perfil",
       text: "Meu perfil",
     },
     {
       icon: ["fas", "door-open"],
-      link: "/logout",
+      link: "/dashboard/logout",
       text: "Sair",
     },
   ];

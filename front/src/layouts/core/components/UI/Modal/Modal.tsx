@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.css";
 import ModalHeader from "./modules/ModalHeader/ModalHeader";
+import Close from "../button/Close/Close";
 
 interface IModal {
   children: React.ReactNode;
   setIsOpen: Function;
   isOpen: boolean;
-  title: string;
-  size?: 'sm' | 'lg' | 'xl' | 'md'
+  title?: string;
+  size?: 'sm' | 'lg' | 'xl' | 'md';
+  fullSize?: boolean;
 }
 
 export default function Modal(props: IModal) {
@@ -15,7 +17,7 @@ export default function Modal(props: IModal) {
     useEffect(() => {
       function handleClickOutside(event: Event) {
         if (ref.current && !ref.current.contains(event.target)) {
-          props.setIsOpen(false);
+          closeModal()
         }
       }
 
@@ -31,13 +33,20 @@ export default function Modal(props: IModal) {
 
   const size = props?.size ? styles[props.size] : styles.md
 
+  const closeModal = () => {
+    props.setIsOpen(false)
+  }
+
   return (
     <>
       {props.isOpen && (
         <>
           <div className={styles.modalOverlay}></div>
-          <div className={`${styles.modal} ${size}`} ref={wrapperRef}>
-            <ModalHeader {...props} />
+          <div className={`${styles.modal} ${size} ${styles[props.fullSize ? 'fullSize' : '']}`} ref={wrapperRef}>
+            <div className={styles.closeButton}>
+              <Close onClick={closeModal} />
+            </div>
+            {props.title && <ModalHeader {...props} />}
             <div className={styles.modalBody}>{props.children}</div>
           </div>
         </>

@@ -14,7 +14,7 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import * as echarts from "echarts";
 import { registerLicense } from "@syncfusion/ej2-base";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
+import { ToastContainer } from "react-toastify";
 
 registerLicense(process.env.NEXT_PUBLIC_SYNCFUSION_KEY ?? "");
 library.add(fas);
@@ -42,7 +42,6 @@ export default function App({ Component, router, ...rest }: AppProps) {
     };
 
   return (
-    <UserProvider>
       <Provider store={store}>
         <Head>
           <title>Money 8</title>
@@ -50,6 +49,7 @@ export default function App({ Component, router, ...rest }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <main>
+          <ToastContainer />
           <AnimatePresence mode="wait">
             <Transition>
               {renderWithLayout(
@@ -67,6 +67,5 @@ export default function App({ Component, router, ...rest }: AppProps) {
           </AnimatePresence>
         </main>
       </Provider>
-    </UserProvider>
   );
 }

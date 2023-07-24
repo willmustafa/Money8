@@ -3,7 +3,7 @@ import styles from "./Card.module.css";
 import _CommonCard from "./_common";
 import _FullWidth from "./_fullWidth";
 
-export interface ICard {
+export interface ICard extends React.HTMLAttributes<HTMLElement> {
   title?: string;
   subtitle?: string;
   children?: React.ReactNode;
@@ -16,7 +16,7 @@ export default function Card(props: ICard) {
     <div
       className={`${styles.card} ${props?.fullWidth ? styles.fullWidth : ""} ${
         props.overflowX ? "overflow-x-scroll" : ""
-      }`}
+      } ${props.className}`}
     >
       {props?.fullWidth !== true ? _CommonCard(props) : _FullWidth(props)}
     </div>

@@ -1,31 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "./store";
 import { HYDRATE } from "next-redux-wrapper";
+import { User } from "firebase/auth";
 
 export interface UserState {
-  email: string;
-  name: string;
-  token: string;
+  user: User | null;
 }
 
 const initialState: UserState = {
-  email: '',
-  name: '',
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjZDg3Njg2ZC00Y2VlLTQ2MDMtOGVlMS04ZmYxNzBlNTNmNTciLCJlbWFpbCI6IndpbGxpYW4yMTQydHNzYWFAZ21haWwuY29tIiwibmFtZSI6IldpbGxpYW4gTXVzdGFmYSIsImlhdCI6MTY4NjI0NzkxMiwiZXhwIjoxNjg2MzM0MzEyfQ.RuWj77S3BJUfaljGYTOzU8ndU8X8eRivxLG6DB8Ehl0',
+  user: null
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUserEmail(state, payload) {
-      state.email = payload.payload;
-    },
-    setUserName(state, payload) {
-      state.name = payload.payload;
-    },
-    setUserToken(state, payload) {
-      state.token = payload.payload;
+    setUser(state, payload) {
+      state.user = payload.payload;
     },
   },
 
@@ -39,6 +30,8 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setUserEmail, setUserName, setUserToken } = userSlice.actions;
+export const { setUser } = userSlice.actions;
+
+export const selectUserState = (state: AppState) => state.user.user;
 
 export default userSlice.reducer;

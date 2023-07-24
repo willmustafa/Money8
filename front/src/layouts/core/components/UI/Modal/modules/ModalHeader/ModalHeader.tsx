@@ -3,7 +3,7 @@ import styles from "./ModalHeader.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IModalHeader {
-    title: string;
+    title?: string;
     setIsOpen: Function
 }
 

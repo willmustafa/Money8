@@ -18,7 +18,8 @@
 }
 
 .img_wrapper {
-  border-radius: 50%;
+  width: 46px;
+  height: 46px;
 }
 
 .user_info {
@@ -63,5 +64,5 @@
 
 .menuLink:hover {
   background-color: var(--indigo);
-  color: var(--light)
+  color: var(--light);
 }

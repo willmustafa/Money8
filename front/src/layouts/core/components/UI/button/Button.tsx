@@ -17,21 +17,27 @@ export interface IButton extends React.ButtonHTMLAttributes<Element> {
   lg?: boolean;
 }
 
-export default function Button(props: IButton) {
+export default function Button({
+  className,
+  type,
+  outline,
+  variant,
+  lg,
+  ...props
+}: IButton) {
   const getClasses = () => {
     let classes = `${styles.button} `;
-    if (props.lg) classes += `${styles.lg} `;
-    if (props.className) classes += `${props.className} `;
-    if (props.variant && !props.outline)
-      classes += styles[`button-${props.variant}`] + " ";
-    if (props.variant && props.outline)
-      classes += styles[`button-outline-${props.variant}`] + " ";
-    if (props.outline) classes += styles["button-outline"];
+    if (outline) classes += `${styles["button-outline"]} `;
+    if (lg) classes += `${styles.lg} `;
+    if (className) classes += `${className} `;
+    if (variant && !outline) classes += styles[`button-${variant}`] + " ";
+    if (variant && outline)
+      classes += styles[`button-outline-${variant}`] + " ";
     return classes;
   };
 
   return (
-    <button className={getClasses()} type={props.type ?? "button"}>
+    <button className={getClasses()} type={type ?? "button"} {...props}>
       {props.children}
     </button>
   );
